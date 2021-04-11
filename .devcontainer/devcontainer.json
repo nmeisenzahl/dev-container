@@ -1,0 +1,26 @@
+{
+	"name": "Ubuntu",
+	"build": {
+		"dockerfile": "Dockerfile",
+	},
+
+	"settings": { 
+		"terminal.integrated.shell.linux": "/bin/zsh"
+	},
+
+	"extensions": [], //TODO
+
+	// "forwardPorts": [], //TODO
+
+	"postCreateCommand": "",
+	"remoteUser": "devcontainer",
+	
+	// Mounts
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=${localEnv:HOME}/.ssh,target=/home/devcontainer/.ssh,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.kube,target=/home/devcontainer/.kube,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.azure,target=/home/devcontainer/.azure,type=bind,consistency=cached",
+		"source=${localEnv:HOME}/.gitconfig,target=/home/devcontainer/.gitconfig,type=bind,consistency=cached"
+	]
+}
